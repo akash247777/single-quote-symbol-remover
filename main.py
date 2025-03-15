@@ -32,8 +32,6 @@ uploaded_files = st.file_uploader("Upload CSV files", type=["csv"], accept_multi
 if uploaded_files:
     cleaned_df = process_files(uploaded_files)
     if cleaned_df is not None:
-        st.write("Cleaned Data Preview:")
-        st.dataframe(cleaned_df.head())
         csv_data = convert_df_to_csv(cleaned_df)
         st.download_button(
             label="Download Cleaned CSV",
